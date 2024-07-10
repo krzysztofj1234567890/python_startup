@@ -1,1 +1,52 @@
 # python_startup
+
+This is a recomended python project structure and tools.
+
+## tutorial
+https://www.w3schools.com/python/default.asp
+
+## libraries
+
+### NumPy 
+Python library (Numerical Python) used for working with arrays. It also has functions for working in domain of linear algebra, fourier transform, and matrices. In Python we have lists that serve the purpose of arrays, but they are slow to process. NumPy aims to provide an array object that is up to 50x faster than traditional Python lists. https://www.w3schools.com/python/numpy/default.asp
+
+- create arrays: arr = np.array([1, 2, 3, 4, 5])
+- generate random numbers: x = random.randint(100)
+- generate array permutations: random.permutation(arr)
+- generate normal distribution: x = random.normal(size=(2, 3))
+- add the values in arr1 to the values in arr2: newarr = np.add(arr1, arr2)
+
+### Pandas
+Python library (Python Data Analysis) used for working with data sets. It has functions for analyzing, cleaning, exploring, and manipulating data. https://www.w3schools.com/python/pandas/default.asp
+ 
+ - remove rows that contain empty cells: new_df = df.dropna()
+ - convert all cells in the columns into the same format: df['Date'] = pd.to_datetime(df['Date'])
+ - fix wrong values: df.loc[7, 'Duration'] = 45
+ - remove duplicates: print(df.duplicated())
+ - corelations (relationships): df.corr() 
+ - plotting: df.plot()
+
+### SciPy
+SciPy is a scientific computation library that uses NumPy underneath. It provides more utility functions for optimization, stats and signal processing. https://www.w3schools.com/python/scipy/scipy_intro.php
+
+- Optimizers are a set of procedures defined in SciPy that find the minimum value of a function, or the root of an equation. 
+- NumPy is capable of finding roots for polynomials and linear equations: 
+'''
+def eqn(x):  return x + cos(x)
+myroot = root(eqn, 0)
+'''
+- Working with Graphs: dijkstra method to find the shortest path in a graph from one element to another: dijkstra(newarr, return_predecessors=True, indices=0)
+- depth_first_order() method returns a depth first traversal from a node: depth_first_order(newarr, 1)
+- A Triangulation of a polygon is to divide the polygon into multiple triangles with which we can compute an area of the polygon: hull = ConvexHull(points)
+- Interpolation: interp_func = interp1d(xs, ys)
+
+### Django
+Django is a Python framework that makes it easier to create web sites using Python. Django follows the MVT design pattern (Model View Template). https://www.w3schools.com/django/django_intro.php
+
+- create virtual environment
+'''
+python -m venv myworld 
+source myworld/bin/activate 
+'''
+
+
