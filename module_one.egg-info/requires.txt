@@ -1,0 +1,7 @@
+requests>2.26.0
+pandas
+
+[dev]
+pylint~=2.14.0
+toml~=0.10.2
+yapf~=0.32.0

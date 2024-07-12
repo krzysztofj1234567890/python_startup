@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "module_one"
+authors = [
+    {name = "kj", email = "kj@kj.com"}
+]
+description = "package description"
+version = "0.0.1"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "requests > 2.26.0",
+    "pandas"
+]
+[project.optional-dependencies]
+dev = [
+    "pylint ~=2.14.0",
+    "toml ~=0.10.2",
+    "yapf ~=0.32.0",
+]
+
+# code formatting
+[tool.yapf]
+blank_line_before_nested_class_or_def = true
+column_limit = 88
+
+# linter
+[tool.pylint]
+max-line-length = 88
+disable = [
+    "C0103", # (invalid-name)
+    "C0114", # (missing-module-docstring)
+    "C0115", # (missing-class-docstring)
+    "C0116", # (missing-function-docstring)
+    "R0903", # (too-few-public-methods)
+    "R0913", # (too-many-arguments)
+    "W0105", # (pointless-string-statement)
+]
