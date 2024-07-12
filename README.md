@@ -8,7 +8,7 @@ https://www.w3schools.com/python/default.asp
 ## libraries
 
 ### NumPy 
-Python library (Numerical Python) used for working with arrays. It also has functions for working in domain of linear algebra, fourier transform, and matrices. In Python we have lists that serve the purpose of arrays, but they are slow to process. NumPy aims to provide an array object that is up to 50x faster than traditional Python lists. https://www.w3schools.com/python/numpy/default.asp
+Python library (Numerical Python) used for working with arrays. It also has functions for working in domain of linear algebra, fourier transform, and matrices. In Python we have lists that serve the purpose of arrays, but they are slow to process. NumPy aims to provide an array object that is up to 50x faster than traditional Python lists. multi-dimensional arrays and matrices. https://www.w3schools.com/python/numpy/default.asp
 
 - create arrays: arr = np.array([1, 2, 3, 4, 5])
 - generate random numbers: x = random.randint(100)
