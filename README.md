@@ -16,6 +16,10 @@ Python library (Numerical Python) used for working with arrays. It also has func
 - generate normal distribution: x = random.normal(size=(2, 3))
 - add the values in arr1 to the values in arr2: newarr = np.add(arr1, arr2)
 
+```
+pip install numpy
+```
+
 ### Pandas
 Python library (Python Data Analysis) used for working with data sets. It has functions for analyzing, cleaning, exploring, and manipulating data. https://www.w3schools.com/python/pandas/default.asp
  
@@ -25,6 +29,10 @@ Python library (Python Data Analysis) used for working with data sets. It has fu
  - remove duplicates: print(df.duplicated())
  - corelations (relationships): df.corr() 
  - plotting: df.plot()
+
+ ```
+ sudo pip install pandas
+ ```
 
 ### SciPy
 SciPy is a scientific computation library that uses NumPy underneath. It provides more utility functions for optimization, stats and signal processing. https://www.w3schools.com/python/scipy/scipy_intro.php
@@ -49,13 +57,42 @@ python -m venv myworld
 source myworld/bin/activate 
 '''
 
+### PySpark
+
+PySpark RDD (Resilient Distributed Dataset) is a fundamental data structure that is fault-tolerant, immutable, and distributed collections of objects. RDDs are immutable, meaning they cannot be changed once created. You can perform two types of operations on RDD; Transformations and Actions.
+RDD transformations in PySpark are lazy operations and they execute only when an action is called on RDD.
+Transformation operations are map, filter, flatMap, groupByKey, reduceByKey, join, union, sortByKey, distinct, sample, mapPartitions, and aggregateByKey. These functions transform RDDs by applying computations in a distributed manner across a cluster of machines and return a new RDD
+
+A DataFrame is a distributed dataset comprising data arranged in rows and columns with named attributes.  
+
+With PySpark DataFrames you can efficiently read, write, transform, and analyze data using Python and SQL
+
+https://spark.apache.org/docs/latest/api/python/getting_started/quickstart_connect.html
+
+```
+pip install pyspark
+pip install pytest
+
+docker pull bitnami/spark:3.5.1
+docker run -p 7077:7077 bitnami/spark:3.5.1
+```
+
+#### pyspark examples
+
+With PySpark DataFrames you can efficiently read, write, transform, and analyze data using Python and SQL.
+
+#### structured streaming
+
+Structured Streaming is a scalable and fault-tolerant stream processing engine built on the Spark SQL engine. You can express your streaming computation the same way you would express a batch computation on static data. The Spark SQL engine will take care of running it incrementally and continuously and updating the final result as streaming data continues to arrive.
+
+
 ## run python unit tests with unittest
 
 https://www.pythontutorial.net/python-unit-testing/python-run-unittest/
 
 
 ```
-python -m unittest test_package.test_module -v
+python3 -m unittest test_package.test_module -v
 ```
 
 ## logging
@@ -80,9 +117,6 @@ mypy main.py
 ```
 
 # functional programming
-
-# pyspark
-
 
 # formatter
 
@@ -111,6 +145,19 @@ Create distribution files:
 python3 -m build
 ```
 
+# run code
+
+run spark cluster
+```
+docker-compose up
+```
+
+run code
+
+```
+/bin/python3 /home/kj/Krzys/git/python_startup/main.py
+```
+
 # books
 
 - https://python-course.eu/books/bernd_klein_python_data_analysis_a4.pdf
@@ -119,4 +166,27 @@ python3 -m build
 
 - https://pepa.holla.cz/wp-content/uploads/2016/10/functional-programming-python.pdf
 
-- 
+## Learning-PySpark.pdf
+
+https://github.com/dinhtuyen/books/blob/master/docs/src/Spark/Learning-PySpark.pdf
+
+#### Spark Jobs and APIs
+
+Any Spark application spins off a single driver process on the master node that then directs executor processes (jobs) distributed to a number of worker nodes (tasks).
+
+A Spark job is associated with a chain of object dependencies (tasks) organized in a direct acyclic graph (DAG).
+
+Resilient Distributed Datasets (RDDs for short): immutable collections of data split into chunks based on some key, are cached, and stored in-memory. 
+RDDs expose some coarse-grained transformations such as map(...), reduce(...), and filter(...).
+
+DataFrames, like RDDs, are immutable collections of data distributed among the nodes in a cluster. However, unlike RDDs, in DataFrames data is organized into named columns.
+
+Spark Datasets is to provide an API that allows users to easily express transformations on domain objects and type-safe programming.
+
+Apache Spark 2.0 =  Tungsten Phase 2 (performance improvements) + structured streaming + unifying Datasets and DataFrames (catalyst optimizer).
+
+The SparkSession is now the entry point for reading data, working with metadata, configuring the session, and managing the cluster resources.
+
+Spark Streaming, there is now a single API that addresses both batch and streaming within the Apache Spark 2.0 release 
+
+
