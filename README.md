@@ -7,6 +7,23 @@ https://www.w3schools.com/python/default.asp
 
 ## libraries
 
+### pip
+
+```
+sudo apt update
+sudo apt install python3-pip
+sudo apt install python3-pip -y
+pip3  --version
+```
+
+Create python environments
+
+```
+sudo apt install python3.12-venv
+python3 -m venv /home/kj/python_env/one
+/home/kj/python_env/one/bin/pip install pandas
+```
+
 ### NumPy 
 Python library (Numerical Python) used for working with arrays. It also has functions for working in domain of linear algebra, fourier transform, and matrices. In Python we have lists that serve the purpose of arrays, but they are slow to process. NumPy aims to provide an array object that is up to 50x faster than traditional Python lists. multi-dimensional arrays and matrices. https://www.w3schools.com/python/numpy/default.asp
 
@@ -85,6 +102,38 @@ With PySpark DataFrames you can efficiently read, write, transform, and analyze 
 
 Structured Streaming is a scalable and fault-tolerant stream processing engine built on the Spark SQL engine. You can express your streaming computation the same way you would express a batch computation on static data. The Spark SQL engine will take care of running it incrementally and continuously and updating the final result as streaming data continues to arrive.
 
+### Polars
+
+Polars was built from the ground up to be blazingly fast and can do common operations around 5–10 times faster than pandas
+The memory requirement for Polars operations is significantly smaller than for pandas: 
+pandas requires around 5 to 10 times as much RAM as the size of the dataset to carry out operations, compared to the 2 to 4 times needed for Polars.
+
+Polars is that it is written in Rust.
+Rust is that it allows for safe concurrency; that is, it is designed to make parallelism as predictable as possible. 
+This gives Polars a massive performance boost over pandas, which only uses one core to carry out operations.
+
+Another factor that contributes to Polars’ impressive performance is Apache Arrow, a language-independent memory format.
+One of the main advantages of building a data library on Arrow is interoperability. 
+Arrow has been designed to standardize the in-memory data format used across libraries.
+Arrow also has built-in support for a wider range of data types than pandas. 
+
+As pandas is based on NumPy, it is excellent at handling integer and float columns, but struggles with other data types. 
+In contrast, Arrow has sophisticated support for datetime, boolean, binary, and even complex column types, such as those containing lists.
+
+Polars has the ability to do both eager and lazy execution, where a query optimizer will evaluate all of the required operations and map out the most efficient way of executing the code.
+
+Polars is a tool that right now, is made for single node/machine processing. 
+
+https://realpython.com/polars-python/
+
+```
+/home/kj/python_env/one/bin/pip install polars
+/home/kj/python_env/one/bin/pip install "polars[all]"
+or
+/home/kj/Desktop/Krzys/git/python_startup/.env/bin/pip install polars
+or
+pip install polars
+```
 
 ## run python unit tests with unittest
 
