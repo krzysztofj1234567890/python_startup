@@ -94,6 +94,50 @@ docker pull bitnami/spark:3.5.1
 docker run -p 7077:7077 bitnami/spark:3.5.1
 ```
 
+Spark with RDD example:
+
+```
+sc = spark.SparkContext()
+# Read the input file and Calculating words count
+text_file = sc.textFile("words.txt")
+counts = text_file.flatMap(lambda line: line.split(" ")) \
+                            .map(lambda word: (word, 1)) \
+                           .reduceByKey(lambda x, y: x + y)
+output = counts.collect()
+```
+
+Spark with DataFrame example:
+
+```
+from pyspark.sql.functions import explode,split,col
+
+df=spark.read.text("words.txt")
+#Apply Split, Explode and groupBy to get count()
+df_count=(
+  df.withColumn('word', explode(split(col('value'), ' ')))
+    .groupBy('word')
+    .count()
+    .sort('count', ascending=False)
+)
+
+#Display Output
+df_count.display()
+```
+
+Spark SQL example:
+
+```
+input_df = spark.read.text("words.txt")
+#Register the DataFrame as a temporary table. so that you can perform SQL queries on tables
+input_df.createOrReplaceTempView("words")
+word_count_df = spark.sql("""
+    SELECT explode(split(value, ' ')) AS word, COUNT(*) AS count
+    FROM words
+    GROUP BY word
+""")
+results = word_count_df.collect()
+```
+
 #### pyspark examples
 
 With PySpark DataFrames you can efficiently read, write, transform, and analyze data using Python and SQL.
