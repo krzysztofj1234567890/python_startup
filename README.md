@@ -76,6 +76,35 @@ source myworld/bin/activate
 
 ### PySpark
 
+#### Install spark using docker-compose
+
+```
+docker-compose up
+```
+
+Upen UI:
+```
+http://localhost:8080/
+```
+
+#### Install python virtual env
+
+```
+python3 -m venv kj
+```
+or
+```
+source kj/bin/activate
+```
+
+and later
+```
+kj/bin/pip install pyspark
+kj/bin/pip install pytest
+```
+
+#### Run pyspark
+
 PySpark RDD (Resilient Distributed Dataset) is a fundamental data structure that is fault-tolerant, immutable, and distributed collections of objects. RDDs are immutable, meaning they cannot be changed once created. You can perform two types of operations on RDD; Transformations and Actions.
 RDD transformations in PySpark are lazy operations and they execute only when an action is called on RDD.
 Transformation operations are map, filter, flatMap, groupByKey, reduceByKey, join, union, sortByKey, distinct, sample, mapPartitions, and aggregateByKey. These functions transform RDDs by applying computations in a distributed manner across a cluster of machines and return a new RDD

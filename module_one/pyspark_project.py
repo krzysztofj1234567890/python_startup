@@ -23,7 +23,7 @@ class KJSparkProject:
         # create spark session
         spark = SparkSession.builder \
             .appName("PySpark project") \
-            .master("spark://192.168.177.1:7077") \
+            .master("spark://172.18.0.2:7077") \
             .getOrCreate()
 
         # load file
